@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "title": "Complete quarterly report",
+    "description": "Analyze Q3 performance metrics and prepare comprehensive report for board meeting",
+    "category": "Work",
+    "priority": "High",
+    "dueDate": "2024-12-30",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-12-15T09:00:00Z",
+    "completedAt": null
+  },
+  {
+    "Id": 2,
+    "title": "Schedule dental appointment",
+    "description": "Book routine cleaning and checkup with Dr. Johnson",
+    "category": "Health",
+    "priority": "Medium",
+    "dueDate": "2024-12-28",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-12-14T14:30:00Z",
+    "completedAt": null
+  },
+  {
+    "Id": 3,
+    "title": "Review investment portfolio",
+    "description": "Analyze current holdings and rebalance for 2025 goals",
+    "category": "Finance",
+    "priority": "Medium",
+    "dueDate": "2025-01-05",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-12-13T16:45:00Z",
+    "completedAt": null
+  },
+  {
+    "Id": 4,
+    "title": "Plan family vacation",
+    "description": "Research destinations and book flights for summer trip",
+    "category": "Personal",
+    "priority": "Low",
+    "dueDate": "2025-01-15",
+    "completed": true,
+    "archived": false,
+    "createdAt": "2024-12-10T11:20:00Z",
+    "completedAt": "2024-12-16T10:30:00Z"
+  },
+  {
+    "Id": 5,
+    "title": "Prepare presentation slides",
+    "description": "Create compelling slides for client pitch meeting next week",
+    "category": "Work",
+    "priority": "High",
+    "dueDate": "2024-12-27",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-12-12T08:15:00Z",
+    "completedAt": null
+  }
+]
