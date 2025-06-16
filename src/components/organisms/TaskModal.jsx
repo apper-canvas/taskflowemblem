@@ -8,24 +8,24 @@ import Select from '@/components/atoms/Select'
 import { format } from 'date-fns'
 
 const TaskModal = ({ task, categories, onSubmit, onClose }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: '',
     description: '',
     category: 'Work',
     priority: 'Medium',
-    dueDate: format(new Date(), 'yyyy-MM-dd')
+    due_date: format(new Date(), 'yyyy-MM-dd')
   })
 
   const [errors, setErrors] = useState({})
 
-  useEffect(() => {
+useEffect(() => {
     if (task) {
       setFormData({
         title: task.title,
         description: task.description,
         category: task.category,
         priority: task.priority,
-        dueDate: task.dueDate
+        due_date: task.due_date || task.dueDate
       })
     }
   }, [task])
@@ -45,8 +45,8 @@ const TaskModal = ({ task, categories, onSubmit, onClose }) => {
       newErrors.priority = 'Priority is required'
     }
     
-    if (!formData.dueDate) {
-      newErrors.dueDate = 'Due date is required'
+if (!formData.due_date) {
+      newErrors.due_date = 'Due date is required'
     }
 
     setErrors(newErrors)
@@ -158,11 +158,11 @@ const TaskModal = ({ task, categories, onSubmit, onClose }) => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Due Date *
             </label>
-            <Input
+<Input
               type="date"
-              value={formData.dueDate}
-              onChange={(e) => handleChange('dueDate', e.target.value)}
-              error={errors.dueDate}
+              value={formData.due_date}
+              onChange={(e) => handleChange('due_date', e.target.value)}
+              error={errors.due_date}
             />
           </div>
 

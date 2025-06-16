@@ -39,17 +39,16 @@ const TaskCard = ({
     return `category-${task.category.toLowerCase()}`
   }
 
-  const formatDueDate = () => {
-    const dueDate = new Date(task.dueDate)
+const formatDueDate = () => {
+    const dueDate = new Date(task.due_date || task.dueDate)
     
     if (isToday(dueDate)) return 'Today'
     if (isTomorrow(dueDate)) return 'Tomorrow'
     return format(dueDate, 'MMM dd')
   }
 
-  const getDueDateColor = () => {
-    const dueDate = new Date(task.dueDate)
-    
+const getDueDateColor = () => {
+    const dueDate = new Date(task.due_date || task.dueDate)
     if (isPast(dueDate) && !task.completed) return 'text-error'
     if (isToday(dueDate)) return 'text-warning'
     return 'text-gray-500'

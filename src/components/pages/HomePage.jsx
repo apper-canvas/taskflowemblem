@@ -38,10 +38,10 @@ const HomePage = () => {
         categoryService.getAll()
       ])
       
-      // Update category task counts
+// Update category task counts
       const updatedCategories = categoriesData.map(category => ({
         ...category,
-        taskCount: tasksData.filter(task => task.category === category.name).length
+        taskCount: tasksData.filter(task => task.category === category.Name).length
       }))
       
       setTasks(tasksData)
@@ -66,7 +66,7 @@ const HomePage = () => {
     }
 
     // Category filter
-    if (selectedCategory !== 'all') {
+if (selectedCategory !== 'all') {
       filtered = filtered.filter(task => task.category === selectedCategory)
     }
 
@@ -87,9 +87,18 @@ const HomePage = () => {
     setFilteredTasks(filtered)
   }
 
-  const handleCreateTask = async (taskData) => {
+const handleCreateTask = async (taskData) => {
     try {
-      const newTask = await taskService.create(taskData)
+      // Map UI field names to database field names
+      const dbTaskData = {
+        title: taskData.title,
+        description: taskData.description,
+        category: taskData.category,
+        priority: taskData.priority,
+        due_date: taskData.due_date || taskData.dueDate
+      };
+      
+      const newTask = await taskService.create(dbTaskData)
       setTasks(prev => [newTask, ...prev])
       setShowModal(false)
       toast.success('Task created successfully!')
@@ -98,9 +107,18 @@ const HomePage = () => {
     }
   }
 
-  const handleUpdateTask = async (taskData) => {
+const handleUpdateTask = async (taskData) => {
     try {
-      const updatedTask = await taskService.update(editingTask.Id, taskData)
+      // Map UI field names to database field names
+      const dbTaskData = {
+        title: taskData.title,
+        description: taskData.description,
+        category: taskData.category,
+        priority: taskData.priority,
+        due_date: taskData.due_date || taskData.dueDate
+      };
+      
+      const updatedTask = await taskService.update(editingTask.Id, dbTaskData)
       setTasks(prev => prev.map(task => 
         task.Id === updatedTask.Id ? updatedTask : task
       ))
@@ -196,7 +214,7 @@ const HomePage = () => {
       {showModal && (
         <TaskModal
           task={editingTask}
-          categories={categories.map(cat => cat.name)}
+categories={categories.map(cat => cat.Name)}
           onSubmit={editingTask ? handleUpdateTask : handleCreateTask}
           onClose={() => {
             setShowModal(false)

@@ -54,23 +54,23 @@ const CategorySidebar = ({ categories, selectedCategory, onCategoryChange }) => 
                 key={category.Id}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => onCategoryChange(category.name)}
+onClick={() => onCategoryChange(category.Name)}
                 className={`w-full flex items-center justify-between p-3 rounded-lg transition-all duration-200 ${
-                  selectedCategory === category.name
+selectedCategory === category.Name
                     ? 'bg-primary text-white shadow-md'
                     : 'hover:bg-gray-100 text-gray-700'
                 }`}
               >
                 <div className="flex items-center space-x-3">
-                  <ApperIcon name={getCategoryIcon(category.name)} className="w-5 h-5" />
-                  <span className="font-medium">{category.name}</span>
+<ApperIcon name={getCategoryIcon(category.Name)} className="w-5 h-5" />
+                  <span className="font-medium">{category.Name}</span>
                 </div>
                 <span className={`text-sm px-2 py-1 rounded-full ${
-                  selectedCategory === category.name
+selectedCategory === category.Name
                     ? 'bg-white/20 text-white'
                     : 'bg-gray-200 text-gray-600'
                 }`}>
-                  {category.taskCount}
+{category.task_count}
                 </span>
               </motion.button>
             ))}
